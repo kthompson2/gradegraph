@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./Styles.css">
 
-    <title>KJSH</title>
+    <title>KTHS</title>
 
     <style>
 
@@ -19,13 +19,14 @@
   <body>
     
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">KJSH</a>
-        
-        <ul class="navbar-nav px-3">
-          <li class="nav-item text-nowrap">
-            <a class="nav-link" href="grades.html">Grades</a>
-          </li>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">KTHS</a>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Kimberly Thompson Highschool Grades&nbsp;&nbsp;</a>
+              </li>
         </ul>
+        
+      </div>
       </nav>
 
 
@@ -55,19 +56,19 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link" href="science.html">
                         <span data-feather="file-text"></span>
                         Science
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link" href="art.html">
                         <span data-feather="file-text"></span>
                         Art
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link" href="english.html">
                         <span data-feather="file-text"></span>
                         English
                       </a>
@@ -76,9 +77,26 @@
                 </div>
               </nav>
               <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <h3>Home Page</h3>
-        
-        
+                <h3>Summary</h3>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                      <div class="col-md-4" style="padding:20px;" onclick="window.location='math.html'"  >
+                          <canvas class="my-4 w-100" id="mathChart" width="100" height="100" style="cursor:pointer;"></canvas>
+                      </div>
+                      <div class="col-md-4" style="padding:20px"  onclick="window.location='science.html'" >
+                          <canvas class="my-4 w-100" id="scienceChart" width="100" height="100" style="cursor:pointer;"></canvas>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-1">&nbsp;</div>
+                        <div class="col-md-4" style="padding:20px"  onclick="window.location='art.html'" >
+                            <canvas class="my-4 w-100" id="artChart" width="100" height="100" style="cursor:pointer;"></canvas>
+                        </div>
+                        <div class="col-md-4" style="padding:20px;" onclick="window.location='english.html'"  >
+                            <canvas class="my-4 w-100" id="englishChart" width="100" height="100" style="cursor:pointer;"></canvas>
+                        </div>                        
+                    </div>
+      
             </main>
 
 
@@ -101,6 +119,101 @@
   <script>
     feather.replace()
   </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
+<script>
+        var ctx = document.getElementById('mathChart').getContext('2d');
+        ctx.height = 200;
+        var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["Week 1", "Week 2", "Week 3", "Weel 4", "Week 5", "Week 6", "Week 7"],
+            datasets: [{
+                label: "Math",
+                backgroundColor: 'rgb(173, 237, 183)',
+                borderColor: 'rgb(141, 198, 150)',
+                data: [83.25, 82, 90, 78, 76.5, 81.25, 78.75 , 78, 0, 100],
+            }]
+        },
+
+        // Configuration options go here
+        options: { }
+    });
+
+</script>
+
+<script>
+    var ctx = document.getElementById('artChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Weel 4", "Week 5", "Week 6", "Week 7"],
+        datasets: [{
+            label: "Art",
+            backgroundColor: 'rgb(211, 147, 237)',
+            borderColor: 'rgb(156, 105, 175)',
+            data: [ 85, 85.75, 90, 91.75, 93.25, 81.25, 90, 78, 0, 100],
+        }]
+    },
+
+    // Configuration options go here
+    options: { }
+});
+
+
+
+</script>
+
+<script>
+    var ctx = document.getElementById('scienceChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Weel 4", "Week 5", "Week 6", "Week 7"],
+        datasets: [{
+            label: "Science Average",
+            backgroundColor: 'rgb(124, 202, 255)',
+            borderColor: 'rgb(75, 175, 219)',
+            data: [82.5, 82.5, 88.75, 80.25, 90.25, 75.5, 78.75, 78, 0, 100],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+</script>
+        <script>
+            var ctx = document.getElementById('englishChart').getContext('2d');
+            var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ["Week 1", "Week 2", "Week 3", "Weel 4", "Week 5", "Week 6", "Week 7"],
+                datasets: [{
+                    label: "English Average",
+                    backgroundColor: 'rgb(255, 140, 247)',
+                    borderColor: 'rgb(208, 124, 215)',
+                    data: [86.25, 82, 90, 56, 87.75, 86.25, 78.75, 78, 0, 100],
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    
+    </script>
 
 
   </body>
