@@ -22,7 +22,9 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">KJSH</a>
         
         <ul class="navbar-nav px-3">
-         
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="grades.html">Grades</a>
+          </li>
         </ul>
       </nav>
 
@@ -47,7 +49,7 @@
                   </h6>
                   <ul class="nav flex-column mb-2">
                     <li class="nav-item">
-                      <a class="nav-link" href="math.html">
+                      <a class="nav-link active" href="math.html">
                         <span data-feather="file-text"></span>
                         Math 
                       </a>
@@ -65,7 +67,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="english.html">
+                      <a class="nav-link" href="english.html">
                         <span data-feather="file-text"></span>
                         English
                       </a>
@@ -74,82 +76,39 @@
                 </div>
               </nav>
               <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <h3>English</h3>
+                
+
+              <!-- Start of inner page contents -->
+
+
+
+                <h3>Math</h3>
+        
                 <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
                 <h4>Assignment Detail</h4>
                 <div class="table-responsive">
                   <table class="table table-striped table-sm">
                     <thead>
                       <tr>
-                        <th>Week Number</th>
                         <th>Name</th>
                         <th>Date Taken</th>
                         <th>Score</th>             
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                       <td>Week 1</td>
-                        <td>Essay Layout</td>
-                        <td>Jan 1, 2018</td>
-                        <td>90</td>
-                      </tr>
-
-                      <tr>
-                       <td>Week 1</td>
-                        <td>Essay</td>
-                        <td>Jan 5, 2018</td>
-                        <td>81</td>
-                      </tr>
-                      <tr>
-                            <td>Week 1</td>
-                            <td>Test</td>
-                            <td>Jan 6, 2018</td>
-                            <td>79</td>
-                          </tr>
-                          <tr>
-                                <td>Week 1</td>
-                                <td>Homework</td>
-                                <td>Jan 7, 2018</td>
-                                <td>95</td>
-                              </tr>
-        
-        
-    
-
+                    <tbody id="detail">
                     </tbody>
                   </table>
-                </div>  
+                </div>
         
             </main>
 
 
 
         </div>
+
     </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
-        <script>
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var chart = new Chart(ctx, {
-                // The type of chart we want to create
-                type: 'line',
-    
-                // The data for our dataset
-                data: {
-                    labels: ["Week 1", "Week 2", "Week 3", "Weel 4", "Week 5", "Week 6", "Week 7"],
-                    datasets: [{
-                        label: "English Average",
-                        backgroundColor: 'rgb(255, 140, 247)',
-                        borderColor: 'rgb(208, 124, 215)',
-                        data: [86.25, 79, 95, 67, 84, 81, 89, 78, 0, 100],
-                    }]
-                },
-    
-                // Configuration options go here
-                options: {}
-            });
-        
-        </script>
+
 
 
 
@@ -159,12 +118,104 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+
+
+
   <!-- Icons -->
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
   <script>
     feather.replace()
   </script>
 
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
+    <script>
+
+        //build data
+        var data = [
+          {
+            "name": "Test 1",
+            "date": "Jan 1, 2018",
+            "score": 55
+          },
+
+          {
+            "name": "Test 2",
+            "date": "Jan 23, 2018",
+            "score": 89
+          },
+          {
+            "name": "Test 3",
+            "date": "Feb 2 , 2018",
+            "score": 77
+          },
+          {
+            "name": "sdfgsdfg",
+            "date": "Feb 2 , 2018",
+            "score": 779
+          },
+          {
+            "name": "gsdfgsd",
+            "date": "Feb 2 , 2018",
+            "score": 77
+          },                    
+          ];
+
+          for (var i = 4; i<50; i++)
+          {
+            data[i] = {"name": "dyn" + i, date:"future", "score": i}
+          }
+
+
+            console.log(data);
+
+
+
+            var labels = [];
+            var scores = [];
+
+            for (var i = 0; i < data.length; i++)
+            {
+              labels[i] = data[i].name;
+              scores[i] = data[i].score;
+            }
+
+
+          // build chart
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Math Grades Per Week",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: scores,
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+
+        //write out the detail
+        var det = "";
+        for (var i = 0; i < data.length; i++)
+        {
+          det += "<tr><td>" + data[i].name + "</td><td>" + data[i].date + "</td><td>" + data[i].score + "</td><td></tr>";
+        }
+         $("#detail").html(det);
+    </script>
 
   </body>
 </html>
