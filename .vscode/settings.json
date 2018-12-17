@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bcf62809-f22b-4b3f-8188-2d2e6563f965/resourceGroups/kths/providers/Microsoft.Web/sites/kths",
+    "appService.deploySubpath": ""
+}
